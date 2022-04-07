@@ -1,0 +1,59 @@
+<!-- Button activador modal agregar empresa -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Agregar empresa
+</button>
+
+<h1 class="titulo">Empresas</h1>
+
+<div class="container"> 
+    <div class="row ">
+    <div class="col-12 col-md-4" *ngFor="let pers of personaModelGet">
+  
+      <div class="card">
+  
+          <div class="card-body">
+            <h5 class="card-title">{{ pers.nombre }}</h5>
+            <p class="card-text">
+              Administrador Javier Jivilp
+            </p>
+            <a href="#" class="btn btn-primary">Ver</a>
+          </div>
+        </div>  
+    </div>
+    </div>
+</div>
+  
+<!-- Modal agregar persona/empresa-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Empresas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mg-3">
+            <label for="imputnombre" class="form-label">Nombre Empresa</label>
+            <input type="text" id = "imputnombre" class="form-control" name="nombre" #nombre="ngModel" 
+            [(ngModel)]="personaModelPost.nombre">
+          </div>
+          <div class="mg-3">
+            <label for="imputCantidad" class="form-label">Contraseña</label>
+            <input type="text" id = "imputpasword" class="form-control" name="password" #password="ngModel" 
+            [(ngModel)]="personaModelPost.password">
+          </div>
+          <div class="mg-3">
+            <label for="imputPrecio" class="form-label">Correo</label>
+            <input type="text" id = "imputemail" class="form-control" name="email" #email="ngModel" 
+            [(ngModel)]="personaModelPost.email">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="postPersona()">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

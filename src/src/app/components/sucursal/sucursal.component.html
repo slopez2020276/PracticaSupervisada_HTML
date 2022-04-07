@@ -1,0 +1,55 @@
+<!-- Button activador modal agregar empresa -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Agregar sucursales
+</button>
+<h1 class="titulo">Sucursales</h1>
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="..." class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8" *ngFor="let sucu of sucursalModelPost">
+        <div class="card-body">
+          <h5 class="card-title">{{ sucu.nombre }}</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal agregar persona/empresa-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Sucursales</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mg-3">
+            <label for="imputnombre" class="form-label">Nombre Sucursal</label>
+            <input type="text" id = "imputnombre" class="form-control" name="nombre" #nombre="ngModel" 
+            [(ngModel)]="sucursalModelPost.nombre">
+          </div>
+          <div class="mg-3">
+            <label for="imputCantidad" class="form-label">Direccion</label>
+            <input type="text" id = "imputdireccion" class="form-control" name="direccion" #direccion="ngModel" 
+            [(ngModel)]="sucursalModelPost.direccion">
+          </div>
+          <div class="mg-3">
+            <label for="imputPrecio" class="form-label">ID de la mpresa a la que pertenece</label>
+            <input type="text" id = "imputID" class="form-control" name="ID" #ID="ngModel" 
+            [(ngModel)]="sucursalModelPost.usuario">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)=" postSucursal()">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
