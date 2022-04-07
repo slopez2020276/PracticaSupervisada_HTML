@@ -11,14 +11,16 @@
         <form id="form-login"  >
           <div class="form-element form-stack">
             <label for="username-login" class="form-label">Correo</label>
-            <input id="username-login" type="text" name="email">
+            <input id="username-login" type="text" name="email" #email="ngModel"
+            [(ngModel)]="usuarioModel.email">
           </div>
           <div class="form-element form-stack">
             <label for="password-login" class="form-label">Contraseña</label>
-            <input id="password-login" type="password" name="password">
+            <input id="password-login" type="password" name="password" #password="ngModel"
+            [(ngModel)]="usuarioModel.password">
           </div>
           <div class="form-element form-submit">
-            <button id="logIn" class="login" type="submit" name="login" routerLink = '/dashboard'>Iniciar Sesion</button>
+            <button id="login" class="login" type="submit" name="login" (click)="login()" routerLink = '/dashboard'>Iniciar Sesion</button>
           </div>
         </form>
       </div>
